@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Claim>
+@{
+    ViewData["Title"] = "Claim Status";
+}
+
+<h1>Your Submitted Claims</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Claim ID</th>
+            <th>Lecturer Name</th>
+            <th>Hours Worked</th>
+            <th>Hourly Rate</th>
+            <th>Additional Notes</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model == null || !Model.Any())
+        {
+            <tr>
+                <td colspan="6">No claims submitted yet.</td>
+            </tr>
+        }
+        else
+        {
+            foreach (var claim in Model)
+            {
+                <tr>
+                    <td>@claim.Id</td>
+                    <td>@claim.LecturerName</td>
+                    <td>@claim.HoursWorked</td>
+                    <td>@claim.HourlyRate</td>
+                    <td>@claim.AdditionalNotes</td>
+                    <td>@claim.Status</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+<style>
+    /* Form Styles */
+    .form-group {
+        margin-bottom: 15px; /* Space between form groups */
+    }
+
+    .form-control {
+        width: 100%; /* Full width for input fields */
+        padding: 10px; /* Padding for input fields */
+        border: 1px solid #ccc; /* Border for input fields */
+        border-radius: 4px; /* Rounded corners */
+    }
+
+    .btn-primary {
+        background-color: #007bff; /* Primary button color */
+        color: white; /* Text color for button */
+        border: none; /* Remove border */
+        padding: 10px 15px; /* Padding for button */
+        border-radius: 4px; /* Rounded corners for button */
+        cursor: pointer; /* Pointer cursor on hover */
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3; /* Darker shade on hover */
+        }
+
+    /* Table Styles */
+    .table {
+        width: 100%; /* Full width for table */
+        border-collapse: collapse; /* Collapse borders */
+    }
+
+        .table th, .table td {
+            border: 1px solid #ddd; /* Border for table cells */
+            padding: 8px; /* Padding for table cells */
+            text-align: left; /* Left align text */
+        }
+
+        .table th {
+            background-color: #f2f2f2; /* Light background for header */
+        }
+</style>
