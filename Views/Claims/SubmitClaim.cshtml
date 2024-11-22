@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Claim>
+@{
+    ViewData["Title"] = "Submit Claim";
+}
+
+<form asp-action="SubmitClaim" method="post" enctype="multipart/form-data">
+    <label for="hoursWorked">Hours Worked:</label>
+    <input type="number" id="hoursWorked" name="HoursWorked" required>
+
+    <label for="hourlyRate">Hourly Rate:</label>
+    <input type="number" id="hourlyRate" name="HourlyRate" required>
+
+    <label for="additionalNotes">Additional Notes:</label>
+    <textarea id="additionalNotes" name="AdditionalNotes"></textarea>
+
+    <label for="uploadDocument">Upload Supporting Document:</label>
+    <input type="file" id="uploadDocument" name="DocumentPath" accept=".pdf, .docx, .xlsx" required>
+
+    <button type="submit">Submit Claim</button>
+</form>
+
+@if (ViewBag.Message != null)
+{
+    <div>@ViewBag.Message</div>
+}
+    <div>@ViewBag.Message</div>
+}
